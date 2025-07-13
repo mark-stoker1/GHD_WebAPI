@@ -65,6 +65,41 @@ In a real project I would follow up any questions or assumption with project Sta
 - #### Swagger:
     * I have implemented Swagger to make testing easier without setting up tools like Postman.
 
+## **Running and Testing the Products API**
+* As Swagger is implemented you can directly build and run the application and then test through the Swagger UI.
+* This should load automatically but if it doesnt the local address will be: https://localhost:7082/swagger/index.html
+* The in-memory DB has 48 products, the Product Ids start from 1 and go sequentially to 48.
+* Please refer to the 'ProductsDbContext.cs' file to see the data setup.
+* NOTE: that Brand is an Enum, so you must use once of the values from Enum.Brand.cs:
+  * GHDWoodhead
+  * GHDDigital
+  * GHDAdvisory
+  * eSolutionsGroup
+  * MovementStrategies
+  * OlssonFireAndRisk
+* There are five Endpoints:
+  * Get All Products: 
+    * Endpoint: GET https://localhost:7082/api/Products/Products?Page=1&PageSize=10&Name=$&Brand=
+    * Only Page and PageSize are mandatory, defaults are listed in the path above. 
+  * Get specific product by Id: 
+    * Endpoint: GET https://localhost:7082/api/Products/Product/{id}
+    * Id is an, from 1 -> 48.
+  * Update specific product: 
+    * Endpoint: PUT https://localhost:7082/api/Products/product/{id}
+    * Id is an, from 1 -> 48.
+    * Include JSON body:
+    ``` { "id": 1, "name": "some new product", "brand": "GHDWoodhead", "price": 5555.55 } ```
+  * Delete a specific product:
+    * Endpoint: DELETE https://localhost:7082/api/Products/product
+    * Id is an, from 1 -> 48.
+    * Include JSON body:
+    * ``` { "id": 1 } ```
+  * Create a new Product:
+    * Endpoint: POST https://localhost:7082/api/Products/product
+    * Will auto generate a new Product Id.
+    * Include JSON body:
+    * ``` { "name": "some product name", "brand": "GHDWoodhead", "price": 45.55 } ```
+
 ## **Future Extension of the Project**
 Below I have listed items that would be good items to extend the project in the future:
    
