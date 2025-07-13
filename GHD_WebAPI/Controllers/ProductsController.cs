@@ -195,7 +195,7 @@ namespace GHD_WebAPI.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        [Produces("application/json")]
+        [Consumes("application/json")]
         public async Task<IActionResult> Delete(
             int id,
             [FromServices] IValidator<DeleteProductCommand> deleteProductCommandValidtor)
