@@ -1,0 +1,6 @@
+@GHD_WebAPI_HostAddress = http://localhost:5044
+
+GET {{GHD_WebAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
